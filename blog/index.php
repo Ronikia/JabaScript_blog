@@ -13,8 +13,11 @@ $posts = $db->getAll("SELECT * FROM posts WHERE id > :id", ['id' => 0]);
 if ($_SESSION['logged'] === true) {
 
 ?>
-<p>Вы вошли в свой акаунт</p>
-<a href="../admin/index.php">В панель админа</a>
+<div class="div_main">
+    <p>Вы вошли в свой акаунт</p>
+    <a href="../admin/index.php">В панель админа</a>
+</div>
+
 <?php
 }
 ?>
@@ -25,8 +28,12 @@ if ($_SESSION['logged'] === true) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная сраница</title>
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
+    <div class="div_main">
+
+    
     <h1>Главная страница</h1>
     <div>
         <p><a href="./register.php">Зарегестироваться</a></p>
@@ -42,11 +49,11 @@ if ($_SESSION['logged'] === true) {
             <p><?= $post['created_date'] ?></p>
             <form action="./post.php" method="POST">
                 <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
-                <button type="submit" name="toPost">Перейти к посту</button>
+                <button type="submit" name="toPost" class="btn">Перейти к посту</button>
             </form>
         <?php endforeach ?>
         <hr>
     </div>
-    
+    </div>
 </body>
 </html>

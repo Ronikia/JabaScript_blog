@@ -35,22 +35,28 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Добавления поста</title>
 </head>
 <body>
-    <p><a href="../blog/exit.php">Выйти из аккаунта</a></p>
-    <h1>Добавить пост</h1>
-    <form action="./create.php" method="POST">
-        <label>
-            Название
-            <input type="text" name="AddNamePost">
-        </label>
-        <label>
-            Описание
-            <input type="text" name="AddDescriptionPost">
-        </label>
-        <button type="submit" name="submitPostAdd">Создать пост</button>
-    </form>
+    <div class="div_main">
+        <p class="create_p"><a href="../blog/exit.php">Выйти из аккаунта</a></p>
+        <h1 class="create_h1">Добавить пост</h1>
+        <div class="create_div_form">
+        <form action="./create.php" method="POST" class="create_form">
+            <label class="create_label"> 
+                Название
+                <input type="text" name="AddNamePost" class="create_unput">
+            </label>
+            <label class="create_label">
+                Описание
+                <input type="text" name="AddDescriptionPost" class="create_unput">
+            </label>
+            <button type="submit" name="submitPostAdd" class="btn">Создать пост</button>
+        </form>
+        </div>
+    </div>
+
 </body>
 </html>
 <?php

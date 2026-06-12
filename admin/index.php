@@ -10,13 +10,22 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Панель админа</title>
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-    <h1>Панель админа</h1>
+    <div class="div_main">
+
+    
+    <h1 class="create_h1">Панель админа</h1>
+    <div>
     <p><a href="../blog/exit.php">Выйти из аккаунта</a></p>
     <p><a href="./create.php">Добавить пост</a></p>
     <p><a href="./delete.php">Удалить пост</a></p>
+    </div>
+    </div>
+    
+    
     
 </body>
 </html>

@@ -32,11 +32,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
+    <div class="div_main">
+
+    
     <h1>Вход в аккаунт</h1>
-    <div>
+    <div class="div_form">
         <form action="login.php" method="POST">
             <label>
                 Username
@@ -46,8 +50,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){
                 Password
                 <input type="text" name="VhodPassword">
             </label>
-            <button type="submit" name="submit">Войти</button>
+            <button type="submit" name="submit" class="btn">Войти</button>
         </form>
+    </div>
     </div>
 </body>
 </html>
