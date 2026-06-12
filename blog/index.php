@@ -1,8 +1,21 @@
 <?php
 session_start();
 
+require_once __DIR__ . '/../includes/db.php';
+
+$host = 'localhost';
+$dbname = 'JabaScript_bloge';
+$username = 'root';
+$pass = '';
+
+$db = new DataBase($host, $dbname, $username, $pass);
+$posts = $db->getAll("SELECT * FROM posts WHERE id > :id", ['id' => 0]);
 if ($_SESSION['logged'] === true) {
-    echo '<p>Вы вошли в свой акаунт</p>';
+
+?>
+<p>Вы вошли в свой акаунт</p>
+<a href="../admin/index.php">В панель админа</a>
+<?php
 }
 ?>
 
@@ -21,5 +34,19 @@ if ($_SESSION['logged'] === true) {
         <p><a href="./exit.php">Выйти из аккаунта</a></p>
     </div>
     <h2>Список постов</h2>
+    <div>
+        <hr>
+        <?php foreach($posts as $post): ?>
+            <h3><?= $post['title'] ?></h3>
+            <p><?= $post['content'] ?></p>
+            <p><?= $post['created_date'] ?></p>
+            <form action="./post.php" method="POST">
+                <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
+                <button type="submit" name="toPost">Перейти к посту</button>
+            </form>
+        <?php endforeach ?>
+        <hr>
+    </div>
+    
 </body>
 </html>

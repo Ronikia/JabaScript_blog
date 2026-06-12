@@ -19,6 +19,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){
         if(password_verify($VhodPassword, $user['pass']) && $user['name'] === $VhodUsername){
             $_SESSION['user_id'] = $VhodUsername;
             $_SESSION['logged'] = true;
+            $_SESSION['user_idid'] = $user['id'];
             header('Location: index.php');
             exit;
         }
